@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.10)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 project(pathfind)
-add_executable(pathfind main.cpp)
+add_executable(pathfind main.cpp Node.h Button.h Graph.h)
 
 include_directories(/usr/local/include)
 

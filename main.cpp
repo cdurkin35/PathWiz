@@ -1,25 +1,34 @@
+#include "Button.h"
+#include "Graph.h"
+#include "Node.h"
 #include <SFML/Graphics.hpp>
+#include <cstdlib> // for rand and srand
+#include <ctime> // for time
 #include <iostream>
-
-const int windowWidth = 8000;
-const int windowHeight = 5000;
-const int gridSizeX = 400;
-const int gridSizeY = 250;
-const int cellSize = 20;
+#include <vector>
 
 int main()
 {
   // Create SFML window
   sf::RenderWindow window(sf::VideoMode(windowWidth, windowHeight), "SFML Grid");
   // Create view
-  sf::View view(sf::FloatRect(0, 0, 1920, 1080));
+  float zoom = 1.0f;
+  sf::View view(sf::FloatRect(0, 0, windowWidth * zoom, windowHeight * zoom));
+  view.setCenter(float(windowWidth) / 2, float(windowHeight) / 2); // Set the center of the view
+  view.zoom(0.25f);
   window.setView(view);
+  sf::Font font;
+  if (!font.loadFromFile("arial.ttf")) {
+    std::cerr << "Failed to load font." << std::endl;
+    return EXIT_FAILURE;
+  }
+
   // Get Mouse Positions
   sf::Vector2f oldPos;
   bool moving = false;
-  // Zoom variable
-  float zoom = 1;
-
+  // Graph
+  Graph graph(font);
+  // Mouse variables
   sf::Vector2i startMousePos;
   sf::Vector2i prevMousePos;
   // Timing variables
@@ -78,19 +87,11 @@ int main()
       }
     }
 
+    graph.handleButtonClicks(window, view);
+
     if (elapsed >= sf::seconds(1.0f / 60.0f)) {
       window.clear(sf::Color::Black);
-      // Draw the Graph
-      sf::RectangleShape cell(sf::Vector2f(cellSize, cellSize));
-      cell.setOutlineColor(sf::Color::Black);
-      cell.setOutlineThickness(5);
-
-      for (int x = 0; x < gridSizeX; ++x) {
-        for (int y = 0; y < gridSizeY; ++y) {
-          cell.setPosition(x * cellSize, y * cellSize);
-          window.draw(cell);
-        }
-      }
+      graph.drawGraph(window, view);
       window.display();
       // Subtract the fixed time step from the elapsed time
       elapsed -= sf::seconds(1.0f / 60.0f);
