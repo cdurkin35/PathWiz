@@ -1,15 +1,11 @@
 #pragma once
 #include "Button.h"
 #include "Node.h"
-#include <SFML/Graphics.hpp>
-#include <cstdlib> // for rand and srand
-#include <ctime> // for time
-#include <iostream>
 #include <limits>
 #include <queue>
 #include <set>
-#include <vector>
 
+// Compare for later data structures
 struct ComparePair {
   bool operator()(const std::pair<int, sf::Vector2i>& x, const std::pair<int, sf::Vector2i>& y) const
   {
@@ -91,14 +87,12 @@ class Graph
 
   void dijkstraButtonClick()
   {
-    // Implement Dijkstra button functionality here
     std::cout << "Dijkstra button clicked!" << std::endl;
     dijkstraAlgorithm();
   }
 
   void aStarButtonClick()
   {
-    // Implement A* button functionality here
     std::cout << "A* button clicked!" << std::endl;
     aStarAlgorithm();
   }
@@ -195,7 +189,6 @@ class Graph
 
   void clearPointsButtonClick()
   {
-    // Implement Clear Points button functionality here
     std::cout << "Clear Points button clicked!" << std::endl;
     // Iterate through all nodes and clear them
     for (int x = 0; x < gridSizeX; ++x) {

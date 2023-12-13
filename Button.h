@@ -1,10 +1,5 @@
 #pragma once
 #include "Node.h"
-#include <SFML/Graphics.hpp>
-#include <cstdlib> // for rand and srand
-#include <ctime> // for time
-#include <iostream>
-#include <vector>
 
 class Button
 {

@@ -1,7 +1,7 @@
 #pragma once
 #include <SFML/Graphics.hpp>
-#include <cstdlib> // for rand and srand
-#include <ctime> // for time
+#include <cstdlib>
+#include <ctime>
 #include <iostream>
 #include <vector>
 const int windowWidth = 8000;

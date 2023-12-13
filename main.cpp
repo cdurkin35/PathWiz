@@ -2,8 +2,8 @@
 #include "Graph.h"
 #include "Node.h"
 #include <SFML/Graphics.hpp>
-#include <cstdlib> // for rand and srand
-#include <ctime> // for time
+#include <cstdlib>
+#include <ctime>
 #include <iostream>
 #include <vector>
 
@@ -75,14 +75,13 @@ int main()
         const sf::Vector2f newPos = sf::Vector2f(event.mouseMove.x, event.mouseMove.y);
         // Swap these to invert the movement direction
         sf::Vector2f deltaPos = (oldPos - newPos) * zoom;
-        // Applying zoom "reduction" (or "augmentation")
+        // Applying zoom reduction
 
         // Move our view accordingly and update the window
         view.move(deltaPos);
         window.setView(view);
 
         // Save the new position as the old one
-        // We're recalculating this, since we've changed the view
         oldPos = newPos;
       }
     }
