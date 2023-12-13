@@ -1,3 +1,3 @@
-/Users/charles/Developer/sfml-test/CMakeFiles/pathfind.dir
-/Users/charles/Developer/sfml-test/CMakeFiles/edit_cache.dir
-/Users/charles/Developer/sfml-test/CMakeFiles/rebuild_cache.dir
+/Users/charles/Developer/PathWiz/CMakeFiles/PathWiz.dir
+/Users/charles/Developer/PathWiz/CMakeFiles/edit_cache.dir
+/Users/charles/Developer/PathWiz/CMakeFiles/rebuild_cache.dir

@@ -54,16 +54,16 @@ RM = /opt/homebrew/Cellar/cmake/3.28.0/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /Users/charles/Developer/sfml-test
+CMAKE_SOURCE_DIR = /Users/charles/Developer/PathWiz
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /Users/charles/Developer/sfml-test
+CMAKE_BINARY_DIR = /Users/charles/Developer/PathWiz
 
 #=============================================================================
 # Directory level rules for the build root directory
 
 # The main recursive "all" target.
-all: CMakeFiles/pathfind.dir/all
+all: CMakeFiles/PathWiz.dir/all
 .PHONY : all
 
 # The main recursive "preinstall" target.
@@ -71,34 +71,34 @@ preinstall:
 .PHONY : preinstall
 
 # The main recursive "clean" target.
-clean: CMakeFiles/pathfind.dir/clean
+clean: CMakeFiles/PathWiz.dir/clean
 .PHONY : clean
 
 #=============================================================================
-# Target rules for target CMakeFiles/pathfind.dir
+# Target rules for target CMakeFiles/PathWiz.dir
 
 # All Build rule for target.
-CMakeFiles/pathfind.dir/all:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/pathfind.dir/build.make CMakeFiles/pathfind.dir/depend
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/pathfind.dir/build.make CMakeFiles/pathfind.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/charles/Developer/sfml-test/CMakeFiles --progress-num=1,2 "Built target pathfind"
-.PHONY : CMakeFiles/pathfind.dir/all
+CMakeFiles/PathWiz.dir/all:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/PathWiz.dir/build.make CMakeFiles/PathWiz.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/PathWiz.dir/build.make CMakeFiles/PathWiz.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/charles/Developer/PathWiz/CMakeFiles --progress-num=1,2 "Built target PathWiz"
+.PHONY : CMakeFiles/PathWiz.dir/all
 
 # Build rule for subdir invocation for target.
-CMakeFiles/pathfind.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/charles/Developer/sfml-test/CMakeFiles 2
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/pathfind.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/charles/Developer/sfml-test/CMakeFiles 0
-.PHONY : CMakeFiles/pathfind.dir/rule
+CMakeFiles/PathWiz.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/charles/Developer/PathWiz/CMakeFiles 2
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/PathWiz.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/charles/Developer/PathWiz/CMakeFiles 0
+.PHONY : CMakeFiles/PathWiz.dir/rule
 
 # Convenience name for target.
-pathfind: CMakeFiles/pathfind.dir/rule
-.PHONY : pathfind
+PathWiz: CMakeFiles/PathWiz.dir/rule
+.PHONY : PathWiz
 
 # clean rule for target.
-CMakeFiles/pathfind.dir/clean:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/pathfind.dir/build.make CMakeFiles/pathfind.dir/clean
-.PHONY : CMakeFiles/pathfind.dir/clean
+CMakeFiles/PathWiz.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/PathWiz.dir/build.make CMakeFiles/PathWiz.dir/clean
+.PHONY : CMakeFiles/PathWiz.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.
