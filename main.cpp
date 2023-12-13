@@ -17,6 +17,7 @@ int main()
   view.setCenter(float(windowWidth) / 2, float(windowHeight) / 2); // Set the center of the view
   view.zoom(0.25f);
   window.setView(view);
+  // Load font
   sf::Font font;
   if (!font.loadFromFile("arial.ttf")) {
     std::cerr << "Failed to load font." << std::endl;
@@ -45,6 +46,7 @@ int main()
       if (event.type == sf::Event::Closed) {
         window.close();
       }
+      // Scroll Wheel Zoom Functionality
       if (event.type == sf::Event::MouseWheelScrolled && !moving) {
         if (event.mouseWheelScroll.delta <= -1) {
           zoom = std::min(4.f, zoom + .1f);
@@ -89,6 +91,7 @@ int main()
     graph.handleButtonClicks(window, view);
 
     if (elapsed >= sf::seconds(1.0f / 60.0f)) {
+      // Draw graph
       window.clear(sf::Color::Black);
       graph.drawGraph(window, view);
       window.display();

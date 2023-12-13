@@ -16,6 +16,7 @@ struct ComparePair {
 class Graph
 {
   public:
+  // Components
   std::vector<std::vector<Node> > nodes;
   Button dijkstraButton;
   Button aStarButton;
@@ -38,7 +39,7 @@ class Graph
     initializeCoordinates();
     generateWalls();
   }
-
+  // Initialize graph display
   void initializeCoordinates()
   {
     for (int x = 0; x < gridSizeX; ++x) {
@@ -48,7 +49,7 @@ class Graph
       }
     }
   }
-
+  // Generate Walls in graph
   void generateWalls()
   {
     std::srand(std::time(0));
@@ -61,7 +62,7 @@ class Graph
       }
     }
   }
-
+  // Manage which buttons are clicked
   void handleButtonClicks(sf::RenderWindow& window, const sf::View& view)
   {
     if (dijkstraButton.isMouseOver(window, view) && sf::Mouse::isButtonPressed(sf::Mouse::Left)) {
@@ -84,7 +85,7 @@ class Graph
       clearPointsButtonClick();
     }
   }
-
+  // Functionality for buttons
   void dijkstraButtonClick()
   {
     std::cout << "Dijkstra button clicked!" << std::endl;
@@ -201,7 +202,7 @@ class Graph
     startNode = nullptr;
     endNode = nullptr;
   }
-
+  // Draw graph to screen
   void drawGraph(sf::RenderWindow& window, const sf::View& view)
   {
     for (int x = 0; x < gridSizeX; ++x) {
