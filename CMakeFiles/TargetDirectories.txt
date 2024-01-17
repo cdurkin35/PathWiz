@@ -1,3 +1,0 @@
-/Users/charles/Developer/PathWiz/CMakeFiles/PathWiz.dir
-/Users/charles/Developer/PathWiz/CMakeFiles/edit_cache.dir
-/Users/charles/Developer/PathWiz/CMakeFiles/rebuild_cache.dir
