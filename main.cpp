@@ -10,7 +10,7 @@
 int main()
 {
   // Create SFML window
-  sf::RenderWindow window(sf::VideoMode(windowWidth, windowHeight), "SFML Grid");
+  sf::RenderWindow window(sf::VideoMode(windowWidth, windowHeight), "PathWiz");
   // Create view
   float zoom = 1.0f;
   sf::View view(sf::FloatRect(0, 0, windowWidth * zoom, windowHeight * zoom));
