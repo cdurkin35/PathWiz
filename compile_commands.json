@@ -1,0 +1,8 @@
+[
+{
+  "directory": "/Users/charles/Developer/PathWiz",
+  "command": "/Library/Developer/CommandLineTools/usr/bin/c++  -I/usr/local/include -isystem /opt/homebrew/include -std=gnu++17 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk -o CMakeFiles/PathWiz.dir/main.cpp.o -c /Users/charles/Developer/PathWiz/main.cpp",
+  "file": "/Users/charles/Developer/PathWiz/main.cpp",
+  "output": "CMakeFiles/PathWiz.dir/main.cpp.o"
+}
+]

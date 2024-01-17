@@ -19,7 +19,7 @@ int main()
   window.setView(view);
   // Load font
   sf::Font font;
-  if (!font.loadFromFile("arial.ttf")) {
+  if (!font.loadFromFile("../fonts/arial.ttf")) {
     std::cerr << "Failed to load font." << std::endl;
     return EXIT_FAILURE;
   }
