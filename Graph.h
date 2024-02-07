@@ -3,7 +3,6 @@
 #include "Node.h"
 #include <limits>
 #include <queue>
-#include <set>
 
 // Compare for later data structures
 struct ComparePair {
@@ -149,7 +148,7 @@ class Graph
       return;
     }
 
-    std::cout << "End Point button clicked! Click on a node to set it as the starting point." << std::endl;
+    std::cout << "End Point button clicked! Click on a node to set it as the ending point." << std::endl;
 
     // Wait for the user to click on a node
     sf::Event clickEvent;
