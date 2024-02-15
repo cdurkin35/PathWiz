@@ -1,6 +1,6 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/PathWiz.dir/main.cpp.o"
-  "CMakeFiles/PathWiz.dir/main.cpp.o.d"
+  "CMakeFiles/PathWiz.dir/src/main.cpp.o"
+  "CMakeFiles/PathWiz.dir/src/main.cpp.o.d"
   "PathWiz"
   "PathWiz.pdb"
 )
