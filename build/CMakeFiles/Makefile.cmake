@@ -32,11 +32,6 @@ set(CMAKE_MAKEFILE_DEPENDS
   "/opt/homebrew/Cellar/cmake/3.28.3/share/cmake/Modules/Platform/Darwin-Initialize.cmake"
   "/opt/homebrew/Cellar/cmake/3.28.3/share/cmake/Modules/Platform/Darwin.cmake"
   "/opt/homebrew/Cellar/cmake/3.28.3/share/cmake/Modules/Platform/UnixPaths.cmake"
-  "/opt/homebrew/lib/cmake/SFML/SFMLConfig.cmake"
-  "/opt/homebrew/lib/cmake/SFML/SFMLConfigDependencies.cmake"
-  "/opt/homebrew/lib/cmake/SFML/SFMLConfigVersion.cmake"
-  "/opt/homebrew/lib/cmake/SFML/SFMLSharedTargets-release.cmake"
-  "/opt/homebrew/lib/cmake/SFML/SFMLSharedTargets.cmake"
   )
 
 # The corresponding makefile is:
@@ -52,5 +47,4 @@ set(CMAKE_MAKEFILE_PRODUCTS
 
 # Dependency information for all targets:
 set(CMAKE_DEPEND_INFO_FILES
-  "CMakeFiles/PathWiz.dir/DependInfo.cmake"
   )
