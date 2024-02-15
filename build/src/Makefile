@@ -87,14 +87,14 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/charles/Developer/PathWiz/build/CMakeFiles /Users/charles/Developer/PathWiz/build//CMakeFiles/progress.marks
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 all
+	cd /Users/charles/Developer/PathWiz/build && $(CMAKE_COMMAND) -E cmake_progress_start /Users/charles/Developer/PathWiz/build/CMakeFiles /Users/charles/Developer/PathWiz/build/src//CMakeFiles/progress.marks
+	cd /Users/charles/Developer/PathWiz/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /Users/charles/Developer/PathWiz/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 clean
+	cd /Users/charles/Developer/PathWiz/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/clean
 .PHONY : clean
 
 # The main clean target
@@ -103,31 +103,56 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 preinstall
+	cd /Users/charles/Developer/PathWiz/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 preinstall
+	cd /Users/charles/Developer/PathWiz/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	$(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /Users/charles/Developer/PathWiz/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
-#=============================================================================
-# Target rules for targets named PathWiz
+# Convenience name for target.
+src/CMakeFiles/PathWiz.dir/rule:
+	cd /Users/charles/Developer/PathWiz/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/CMakeFiles/PathWiz.dir/rule
+.PHONY : src/CMakeFiles/PathWiz.dir/rule
 
-# Build rule for target.
-PathWiz: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 PathWiz
+# Convenience name for target.
+PathWiz: src/CMakeFiles/PathWiz.dir/rule
 .PHONY : PathWiz
 
 # fast build rule for target.
 PathWiz/fast:
-	$(MAKE) $(MAKESILENT) -f src/CMakeFiles/PathWiz.dir/build.make src/CMakeFiles/PathWiz.dir/build
+	cd /Users/charles/Developer/PathWiz/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/PathWiz.dir/build.make src/CMakeFiles/PathWiz.dir/build
 .PHONY : PathWiz/fast
+
+main.o: main.cpp.o
+.PHONY : main.o
+
+# target to build an object file
+main.cpp.o:
+	cd /Users/charles/Developer/PathWiz/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/PathWiz.dir/build.make src/CMakeFiles/PathWiz.dir/main.cpp.o
+.PHONY : main.cpp.o
+
+main.i: main.cpp.i
+.PHONY : main.i
+
+# target to preprocess a source file
+main.cpp.i:
+	cd /Users/charles/Developer/PathWiz/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/PathWiz.dir/build.make src/CMakeFiles/PathWiz.dir/main.cpp.i
+.PHONY : main.cpp.i
+
+main.s: main.cpp.s
+.PHONY : main.s
+
+# target to generate assembly for a file
+main.cpp.s:
+	cd /Users/charles/Developer/PathWiz/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/PathWiz.dir/build.make src/CMakeFiles/PathWiz.dir/main.cpp.s
+.PHONY : main.cpp.s
 
 # Help Target
 help:
@@ -138,6 +163,9 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... PathWiz"
+	@echo "... main.o"
+	@echo "... main.i"
+	@echo "... main.s"
 .PHONY : help
 
 
@@ -149,6 +177,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	$(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /Users/charles/Developer/PathWiz/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 
