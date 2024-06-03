@@ -1,0 +1,6 @@
+# Ignore build directory
+build/
+# Ignore cache directory
+.cache/
+# Ignore DS_Store
+.DS_Store
