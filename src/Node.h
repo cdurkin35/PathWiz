@@ -30,10 +30,7 @@ public:
         shape.setPosition(pos);
     }
     // Draw node
-    void draw(sf::RenderWindow& window)
-    {
-        window.draw(shape);
-    }
+    void draw(sf::RenderWindow& window) { window.draw(shape); }
     // Make node a wall
     void makeWall()
     {
@@ -41,15 +38,9 @@ public:
         shape.setFillColor(sf::Color::Black);
     }
     // Make node a start node
-    void makeStart()
-    {
-        shape.setFillColor(sf::Color::Green);
-    }
+    void makeStart() { shape.setFillColor(sf::Color::Green); }
     // Make node an end node
-    void makeEnd()
-    {
-        shape.setFillColor(sf::Color::Red);
-    }
+    void makeEnd() { shape.setFillColor(sf::Color::Red); }
     // Clear node
     void clear()
     {

@@ -6,7 +6,8 @@
 
 // Compare for later data structures
 struct ComparePair {
-    bool operator()(const std::pair<int, sf::Vector2i>& x, const std::pair<int, sf::Vector2i>& y) const
+    bool operator()(
+        const std::pair<int, sf::Vector2i>& x, const std::pair<int, sf::Vector2i>& y) const
     {
         return x.first > y.first;
     }
@@ -64,7 +65,8 @@ public:
     // Manage which buttons are clicked
     void handleButtonClicks(sf::RenderWindow& window, const sf::View& view)
     {
-        if (dijkstraButton.isMouseOver(window, view) && sf::Mouse::isButtonPressed(sf::Mouse::Left)) {
+        if (dijkstraButton.isMouseOver(window, view)
+            && sf::Mouse::isButtonPressed(sf::Mouse::Left)) {
             dijkstraButtonClick();
         }
 
@@ -72,15 +74,18 @@ public:
             aStarButtonClick();
         }
 
-        if (startPointButton.isMouseOver(window, view) && sf::Mouse::isButtonPressed(sf::Mouse::Left)) {
+        if (startPointButton.isMouseOver(window, view)
+            && sf::Mouse::isButtonPressed(sf::Mouse::Left)) {
             startPointButtonClick(window, view);
         }
 
-        if (endPointButton.isMouseOver(window, view) && sf::Mouse::isButtonPressed(sf::Mouse::Left)) {
+        if (endPointButton.isMouseOver(window, view)
+            && sf::Mouse::isButtonPressed(sf::Mouse::Left)) {
             endPointButtonClick(window, view);
         }
 
-        if (clearPointsButton.isMouseOver(window, view) && sf::Mouse::isButtonPressed(sf::Mouse::Left)) {
+        if (clearPointsButton.isMouseOver(window, view)
+            && sf::Mouse::isButtonPressed(sf::Mouse::Left)) {
             clearPointsButtonClick();
         }
     }
@@ -103,7 +108,8 @@ public:
             return;
         }
 
-        std::cout << "Start Point button clicked! Click on a node to set it as the starting point." << std::endl;
+        std::cout << "Start Point button clicked! Click on a node to set it as the starting point."
+                  << std::endl;
 
         // Wait for the user to click on a node
         sf::Event clickEvent;
@@ -112,7 +118,8 @@ public:
             if (clickEvent.type == sf::Event::Closed) {
                 window.close();
                 break;
-            } else if (clickEvent.type == sf::Event::MouseButtonPressed && clickEvent.mouseButton.button == sf::Mouse::Left) {
+            } else if (clickEvent.type == sf::Event::MouseButtonPressed
+                && clickEvent.mouseButton.button == sf::Mouse::Left) {
                 // Check if the mouse button is pressed (not released)
                 if (!mouseClicked) {
                     mouseClicked = true;
@@ -135,7 +142,8 @@ public:
                         break; // Exit the loop after a valid node is selected
                     }
                 }
-            } else if (clickEvent.type == sf::Event::MouseButtonReleased && clickEvent.mouseButton.button == sf::Mouse::Left) {
+            } else if (clickEvent.type == sf::Event::MouseButtonReleased
+                && clickEvent.mouseButton.button == sf::Mouse::Left) {
                 // Reset the flag when the mouse button is released
                 mouseClicked = false;
             }
@@ -148,7 +156,8 @@ public:
             return;
         }
 
-        std::cout << "End Point button clicked! Click on a node to set it as the ending point." << std::endl;
+        std::cout << "End Point button clicked! Click on a node to set it as the ending point."
+                  << std::endl;
 
         // Wait for the user to click on a node
         sf::Event clickEvent;
@@ -157,7 +166,8 @@ public:
             if (clickEvent.type == sf::Event::Closed) {
                 window.close();
                 break;
-            } else if (clickEvent.type == sf::Event::MouseButtonPressed && clickEvent.mouseButton.button == sf::Mouse::Left) {
+            } else if (clickEvent.type == sf::Event::MouseButtonPressed
+                && clickEvent.mouseButton.button == sf::Mouse::Left) {
                 // Check if the mouse button is pressed (not released)
                 if (!mouseClicked) {
                     mouseClicked = true;
@@ -180,7 +190,8 @@ public:
                         break; // Exit the loop after a valid node is selected
                     }
                 }
-            } else if (clickEvent.type == sf::Event::MouseButtonReleased && clickEvent.mouseButton.button == sf::Mouse::Left) {
+            } else if (clickEvent.type == sf::Event::MouseButtonReleased
+                && clickEvent.mouseButton.button == sf::Mouse::Left) {
                 // Reset the flag when the mouse button is released
                 mouseClicked = false;
             }
@@ -222,17 +233,23 @@ public:
     {
         // Check if start and end nodes are selected
         if (startNode == nullptr || endNode == nullptr) {
-            std::cerr << "Please select both start and end nodes before running Dijkstra's Algorithm." << std::endl;
+            std::cerr
+                << "Please select both start and end nodes before running Dijkstra's Algorithm."
+                << std::endl;
             return;
         }
 
         // Initialize distances to all nodes as infinity, except for the start node (distance = 0)
-        std::vector<std::vector<int> > distances(gridSizeX, std::vector<int>(gridSizeY, std::numeric_limits<int>::max()));
+        std::vector<std::vector<int> > distances(
+            gridSizeX, std::vector<int>(gridSizeY, std::numeric_limits<int>::max()));
         distances[startNode->position.x / cellSize][startNode->position.y / cellSize] = 0;
 
         // Priority queue to store nodes and their distances
-        std::priority_queue<std::pair<int, sf::Vector2i>, std::vector<std::pair<int, sf::Vector2i> >, ComparePair> pq;
-        pq.push({ 0, { int(startNode->position.x / cellSize), int(startNode->position.y / cellSize) } });
+        std::priority_queue<std::pair<int, sf::Vector2i>,
+            std::vector<std::pair<int, sf::Vector2i> >, ComparePair>
+            pq;
+        pq.push({ 0,
+            { int(startNode->position.x / cellSize), int(startNode->position.y / cellSize) } });
 
         while (!pq.empty()) {
             auto current = pq.top();
@@ -247,20 +264,25 @@ public:
             }
 
             // Exclude changing the color of start and end nodes
-            if (current.second != sf::Vector2i(startNode->position.x / cellSize, startNode->position.y / cellSize) && current.second != sf::Vector2i(endNode->position.x / cellSize, endNode->position.y / cellSize)) {
+            if (current.second
+                    != sf::Vector2i(
+                        startNode->position.x / cellSize, startNode->position.y / cellSize)
+                && current.second
+                    != sf::Vector2i(
+                        endNode->position.x / cellSize, endNode->position.y / cellSize)) {
                 // Set the color of the current node to blue
                 nodes[x][y].shape.setFillColor(sf::Color::Blue);
             }
 
             // Check if the current node is the endNode
-            if (current.second == sf::Vector2i(endNode->position.x / cellSize, endNode->position.y / cellSize)) {
+            if (current.second
+                == sf::Vector2i(endNode->position.x / cellSize, endNode->position.y / cellSize)) {
                 break; // Stop the algorithm once the shortest path to the endNode is found
             }
 
             // Check neighbors (left, right, top, bottom)
-            const std::vector<sf::Vector2i> neighbors = {
-                { x - 1, y }, { x + 1, y }, { x, y - 1 }, { x, y + 1 }
-            };
+            const std::vector<sf::Vector2i> neighbors
+                = { { x - 1, y }, { x + 1, y }, { x, y - 1 }, { x, y + 1 } };
 
             for (const auto& neighbor : neighbors) {
                 int nx = neighbor.x;
@@ -294,19 +316,26 @@ public:
     {
         // Check if start and end nodes are selected
         if (startNode == nullptr || endNode == nullptr) {
-            std::cerr << "Please select both start and end nodes before running A* Algorithm." << std::endl;
+            std::cerr << "Please select both start and end nodes before running A* Algorithm."
+                      << std::endl;
             return;
         }
 
-        // Initialize distances and heuristic values to all nodes as infinity, except for the start node (distance = 0, heuristic = Manhattan distance)
-        std::vector<std::vector<int> > distances(gridSizeX, std::vector<int>(gridSizeY, std::numeric_limits<int>::max()));
+        // Initialize distances and heuristic values to all nodes as infinity, except for the start
+        // node (distance = 0, heuristic = Manhattan distance)
+        std::vector<std::vector<int> > distances(
+            gridSizeX, std::vector<int>(gridSizeY, std::numeric_limits<int>::max()));
         std::vector<std::vector<int> > heuristics(gridSizeX, std::vector<int>(gridSizeY, 0));
 
         distances[startNode->position.x / cellSize][startNode->position.y / cellSize] = 0;
 
         // Priority queue to store nodes, their distances, and heuristics
-        std::priority_queue<std::pair<int, sf::Vector2i>, std::vector<std::pair<int, sf::Vector2i> >, ComparePair> pq;
-        pq.push({ 0 + manhattanDistance(startNode->position, endNode->position), { static_cast<int>(startNode->position.x / cellSize), static_cast<int>(startNode->position.y / cellSize) } });
+        std::priority_queue<std::pair<int, sf::Vector2i>,
+            std::vector<std::pair<int, sf::Vector2i> >, ComparePair>
+            pq;
+        pq.push({ 0 + manhattanDistance(startNode->position, endNode->position),
+            { static_cast<int>(startNode->position.x / cellSize),
+                static_cast<int>(startNode->position.y / cellSize) } });
 
         while (!pq.empty()) {
             auto current = pq.top();
@@ -321,37 +350,50 @@ public:
             }
 
             // Change the color of the current node to blue, excluding startNode and endNode
-            if (current.second != sf::Vector2i(startNode->position.x / cellSize, startNode->position.y / cellSize) && current.second != sf::Vector2i(endNode->position.x / cellSize, endNode->position.y / cellSize)) {
+            if (current.second
+                    != sf::Vector2i(
+                        startNode->position.x / cellSize, startNode->position.y / cellSize)
+                && current.second
+                    != sf::Vector2i(
+                        endNode->position.x / cellSize, endNode->position.y / cellSize)) {
                 nodes[x][y].shape.setFillColor(sf::Color::Blue);
             }
 
             // Check if the current node is the endNode
-            if (current.second == sf::Vector2i(endNode->position.x / cellSize, endNode->position.y / cellSize)) {
+            if (current.second
+                == sf::Vector2i(endNode->position.x / cellSize, endNode->position.y / cellSize)) {
                 break; // Stop the algorithm once the shortest path to the endNode is found
             }
 
             // Check neighbors (left, right, top, bottom)
-            const std::vector<sf::Vector2i> neighbors = {
-                { x - 1, y }, { x + 1, y }, { x, y - 1 }, { x, y + 1 }
-            };
+            const std::vector<sf::Vector2i> neighbors
+                = { { x - 1, y }, { x + 1, y }, { x, y - 1 }, { x, y + 1 } };
 
             for (const auto& neighbor : neighbors) {
                 int nx = neighbor.x;
                 int ny = neighbor.y;
 
                 // Check if the neighbor is within the valid range and not a wall
-                if (nx >= 0 && nx < gridSizeX && ny >= 0 && ny < gridSizeY && !nodes[nx][ny].isWall) {
+                if (nx >= 0 && nx < gridSizeX && ny >= 0 && ny < gridSizeY
+                    && !nodes[nx][ny].isWall) {
                     int newDistance = distances[x][y] + 1; // Assuming each edge has a weight of 1
 
                     // Update distance if the new path is shorter
                     if (newDistance < distances[nx][ny]) {
                         distances[nx][ny] = newDistance;
                         // Update heuristic value using Manhattan distance
-                        heuristics[nx][ny] = manhattanDistance(nodes[nx][ny].position, endNode->position);
+                        heuristics[nx][ny]
+                            = manhattanDistance(nodes[nx][ny].position, endNode->position);
                         pq.push({ newDistance + heuristics[nx][ny], { nx, ny } });
 
-                        // Change the color of the enqueued node to blue, excluding startNode and endNode
-                        if (neighbor != sf::Vector2i(startNode->position.x / cellSize, startNode->position.y / cellSize) && neighbor != sf::Vector2i(endNode->position.x / cellSize, endNode->position.y / cellSize)) {
+                        // Change the color of the enqueued node to blue, excluding startNode and
+                        // endNode
+                        if (neighbor
+                                != sf::Vector2i(startNode->position.x / cellSize,
+                                    startNode->position.y / cellSize)
+                            && neighbor
+                                != sf::Vector2i(endNode->position.x / cellSize,
+                                    endNode->position.y / cellSize)) {
                             // Check if the node is not already part of the path
                             if (distances[nx][ny] != std::numeric_limits<int>::max()) {
                                 nodes[nx][ny].shape.setFillColor(sf::Color::Blue);
@@ -376,9 +418,8 @@ public:
             int currentDistance = distances[x][y];
 
             // Find the neighbor with the minimum distance
-            const std::vector<sf::Vector2i> neighbors = {
-                { x - 1, y }, { x + 1, y }, { x, y - 1 }, { x, y + 1 }
-            };
+            const std::vector<sf::Vector2i> neighbors
+                = { { x - 1, y }, { x + 1, y }, { x, y - 1 }, { x, y + 1 } };
 
             sf::Vector2i nextNode = { -1, -1 };
             int minDistance = std::numeric_limits<int>::max();
@@ -401,7 +442,12 @@ public:
 
             if (nextNode.x != -1 && nextNode.y != -1) {
                 // Exclude changing the color of start and end nodes
-                if (nextNode != sf::Vector2i(startNode->position.x / cellSize, startNode->position.y / cellSize) && nextNode != sf::Vector2i(endNode->position.x / cellSize, endNode->position.y / cellSize)) {
+                if (nextNode
+                        != sf::Vector2i(
+                            startNode->position.x / cellSize, startNode->position.y / cellSize)
+                    && nextNode
+                        != sf::Vector2i(
+                            endNode->position.x / cellSize, endNode->position.y / cellSize)) {
                     // Highlight the path by changing the color
                     nodes[nextNode.x][nextNode.y].shape.setFillColor(sf::Color::Yellow);
                 }
