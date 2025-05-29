@@ -13,4 +13,5 @@ mdkir build
 cd build
 cmake ..
 make
-./src/PathWiz
+cd ..
+./build/src/PathWiz
